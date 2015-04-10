@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database.xml">
+
+    <changeSet author="dat" id="1405413853579-1">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="INT(10)">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="userName" type="VARCHAR(255)" />
+            <column name="password" type="VARCHAR(255)" />
+            <column name="firstName" type="VARCHAR(255)" />
+            <column name="lastName" type="VARCHAR(255)" />
+            <column name="emailAddress" type="VARCHAR(255)" />
+            <column name="country" type="VARCHAR(255)" />
+            <column name="city" type="VARCHAR(255)" />
+            <column name="phoneNumber" type="VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="isLocked" type="BIT(1)" />
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
