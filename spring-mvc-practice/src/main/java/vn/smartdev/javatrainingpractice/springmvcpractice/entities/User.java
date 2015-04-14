@@ -3,6 +3,7 @@ package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 import javax.persistence.*;
 
 @Entity
+@Table(name="user")
 public class User {
     private String id;
     private String userName;
