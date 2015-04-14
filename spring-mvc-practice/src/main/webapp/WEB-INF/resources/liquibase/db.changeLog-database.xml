@@ -1,39 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
-http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database.xml">
-
-    <changeSet author="dat" id="1405413853579-1">
-        <createTable tableName="user">
-            <column name="id" type="VARCHAR(45)">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="user_name" type="VARCHAR(255)" />
-            <column name="password" type="VARCHAR(255)" />
-            <column name="first_name" type="VARCHAR(255)" />
-            <column name="last_name" type="VARCHAR(255)" />
-            <column name="email_address" type="VARCHAR(255)" />
-            <column name="country" type="VARCHAR(255)" />
-            <column name="city" type="VARCHAR(255)" />
-            <column name="phone_number" type="VARCHAR(255)"/>
-            <!--<column defaultValueNumeric="0" name="isLocked" type="BIT(1)" >-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
-            <!--<column name="created_by" type="VARCHAR(45)">-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
-            <!--<column name="updated_by" type="VARCHAR(45)">-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
-            <!--<column name="created_date" type="datetime">-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
-            <!--<column name="updated_date" type="datetime">-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
-            <!--<column defaultValueNumeric="0" name="version_no" type="INT">-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
-        </createTable>
-    </changeSet>
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" >
+    <include file="db.changeLog-database-1.0.xml" relativeToChangelogFile="true"/>
+    <include file="db.changeLog-database-1.1.xml" relativeToChangelogFile="true"/>
+    <include file="db.changeLog-database-1.2.xml" relativeToChangelogFile="true"/>
+    <include file="db.changeLog-database-1.3.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
+

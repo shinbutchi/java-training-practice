@@ -29,7 +29,7 @@
         <property name="jpaPropertyMap">
             <map>
                 <entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
-                <entry key="hibernate.hbm2ddl.auto" value="validate" />
+                <entry key="hibernate.hbm2ddl.auto" value="update" />
                 <entry key="hibernate.format_sql" value="true" />
             </map>
         </property>
@@ -43,9 +43,9 @@
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/java_training"/>
-    </bean>
+    <!--<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">-->
+        <!--<property name="jndiName" value="java:comp/env/jdbc/java_training"/>-->
+    <!--</bean>-->
 
     <tx:annotation-driven transaction-manager="transactionManager" />
 
@@ -55,7 +55,7 @@
     </bean>
 
      <!--auditing -->
-    <!--<jpa:auditing auditor-aware-ref="auditorAware" />-->
-    <!--<bean id="auditorAware" class="vn.smartdev.javatrainingpractice.springmvcpractice.entities.AuditorAwareImpl" />-->
+    <jpa:auditing auditor-aware-ref="auditorAware" />
+    <bean id="auditorAware" class="vn.smartdev.javatrainingpractice.springmvcpractice.entities.AuditorAwareImpl" />
 
 </beans>

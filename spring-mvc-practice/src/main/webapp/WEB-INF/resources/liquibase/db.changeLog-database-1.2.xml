@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database-1.2.xml">
+
+    <changeSet author="dat" id="1405413983579-1">
+        <createTable tableName="user_role">
+            <column name="id" type="VARCHAR(45)">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="user_id" type="VARCHAR(45)" />
+            <column name="role_id" type="VARCHAR(45)" />
+            <column name="created_by" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_by" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="version_no" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

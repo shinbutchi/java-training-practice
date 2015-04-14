@@ -18,6 +18,7 @@
     <hibernate.core.version>4.2.2.Final</hibernate.core.version>
     <hibernate.entitymanager.version>4.2.2.Final</hibernate.entitymanager.version>
     <javaee.version>6.0</javaee.version>
+    <jstl.version>1.2</jstl.version>
   </properties>
   <dependencies>
     <!-- Testing -->
@@ -98,6 +99,13 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
       <version>${hibernate.entitymanager.version}</version>
+    </dependency>
+
+    <!-- jstl for jsp page -->
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>${jstl.version}</version>
     </dependency>
   </dependencies>
   <build>
