@@ -16,25 +16,24 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath
             <column name="country" type="VARCHAR(255)" />
             <column name="city" type="VARCHAR(255)" />
             <column name="phone_number" type="VARCHAR(255)"/>
-            <column defaultValueNumeric="0" name="isLocked" type="BIT(1)" />
-            <column name="created_by" type="VARCHAR(45)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="updated_by" type="VARCHAR(45)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="created_date" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-            <column name="updated_date" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="0" name="version_no" type="INT">
-                <constraints nullable="false"/>
-            </column>
-            <column defaultValueNumeric="0" name="deleted" type="BIT(1)">
-                <constraints nullable="false"/>
-            </column>
+            <!--<column defaultValueNumeric="0" name="isLocked" type="BIT(1)" >-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="created_by" type="VARCHAR(45)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="updated_by" type="VARCHAR(45)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="created_date" type="datetime">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="updated_date" type="datetime">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column defaultValueNumeric="0" name="version_no" type="INT">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
         </createTable>
     </changeSet>
 </databaseChangeLog>

@@ -2,23 +2,60 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/data/jpa
-        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        ">
 
     <context:annotation-config />
 
-    <context:component-scan base-package="vn.smartdev.javatrainingpractice"/>
+    <jpa:repositories base-package="vn.smartdev.javatrainingpractice.springmvcpractice.repositories" />
+
+    <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />-->
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true" />
+            </bean>
+        </property>
+        <!--<property name="jpaPropertyMap">-->
+            <!--<map>-->
+                <!--<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />-->
+                <!--<entry key="hibernate.hbm2ddl.auto" value="validate" />-->
+                <!--<entry key="hibernate.format_sql" value="true" />-->
+            <!--</map>-->
+        <!--</property>-->
+        <!-- spring based scanning for entity classes>-->
+        <property name="packagesToScan" value="vn.smartdev.javatrainingpractice.springmvcpractice.entities"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/jdbc/java_training"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- auditing -->
-    <jpa:auditing auditor-aware-ref="auditorAware" />
-    <bean id="auditorAware" class="vn.smartdev.javatrainingpractice.springmvcpractice.entities.AuditorAwareImpl" />
+     <!--auditing -->
+    <!--<jpa:auditing auditor-aware-ref="auditorAware" />-->
+    <!--<bean id="auditorAware" class="vn.smartdev.javatrainingpractice.springmvcpractice.entities.AuditorAwareImpl" />-->
+
 </beans>

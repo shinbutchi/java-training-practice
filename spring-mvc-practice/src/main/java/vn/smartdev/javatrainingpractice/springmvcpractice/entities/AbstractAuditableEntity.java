@@ -36,6 +36,4 @@ public abstract class AbstractAuditableEntity implements Serializable {
     @Version
     @Column(name = "version_no")
     private Integer versionNo = 0;
-
-    private boolean deleted = false;
 }

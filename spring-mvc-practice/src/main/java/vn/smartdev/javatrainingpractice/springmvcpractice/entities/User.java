@@ -1,14 +1,9 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.io.Serializable;
-
+import javax.persistence.*;
 
 @Entity
-public class User extends AbstractAuditableEntity implements Serializable {
+public class User {
     private String id;
     private String userName;
     private String password;
@@ -18,7 +13,6 @@ public class User extends AbstractAuditableEntity implements Serializable {
     private String country;
     private String city;
     private String phoneNumber;
-    private Boolean isLocked;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 45)
@@ -108,14 +102,6 @@ public class User extends AbstractAuditableEntity implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public Boolean isLocked() {
-        return isLocked;
-    }
-
-    public void setIsLocked(Boolean isLocked) {
-        this.isLocked = isLocked;
     }
 
     @Override

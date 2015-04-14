@@ -9,12 +9,12 @@
   <url>http://maven.apache.org</url>
   <properties>
     <junit.version>4.11</junit.version>
-    <spring.core.version>4.1.0.RELEASE</spring.core.version>
+    <spring.core.version>4.1.3.RELEASE</spring.core.version>
     <hamcrest.core.version>1.3</hamcrest.core.version>
-    <spring.data.jpa.version>1.7.2.RELEASE</spring.data.jpa.version>
+    <spring.data.jpa.version>1.8.0.RELEASE</spring.data.jpa.version>
     <liquibase.core.version>3.1.1</liquibase.core.version>
     <mysql.connector.java.version>5.1.35</mysql.connector.java.version>
-    <spring.securiry.core.version>4.0.0.RELEASE</spring.securiry.core.version>
+    <spring.securiry.core.version>3.2.5.RELEASE</spring.securiry.core.version>
     <hibernate.core.version>4.2.2.Final</hibernate.core.version>
     <hibernate.entitymanager.version>4.2.2.Final</hibernate.entitymanager.version>
     <javaee.version>6.0</javaee.version>
@@ -54,14 +54,27 @@
       <version>${spring.data.jpa.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-core</artifactId>
-      <version>${spring.securiry.core.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
       <version>${spring.core.version}</version>
+    </dependency>
+    <!-- Spring Security -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring.securiry.core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring.securiry.core.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${spring.securiry.core.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
     </dependency>
     <!-- Liquibase Core -->
     <dependency>
