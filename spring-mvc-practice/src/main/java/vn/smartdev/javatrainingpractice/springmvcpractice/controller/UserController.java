@@ -19,9 +19,12 @@ public class UserController {
         model.addObject("title", "Spring Security Login Form - Database Authentication");
         model.addObject("message", "This is default page!");
         model.setViewName("hello");
+//        model.setViewName("views/hello");
         return model;
 
     }
+
+
 
     @RequestMapping(value = "/admin**", method = RequestMethod.GET)
     public ModelAndView adminPage() {
@@ -29,6 +32,7 @@ public class UserController {
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Security Login Form - Database Authentication");
         model.addObject("message", "This page is for ROLE_ADMIN only!");
+//        model.setViewName("views/admin");
         model.setViewName("admin");
         return model;
 
@@ -47,6 +51,7 @@ public class UserController {
             model.addObject("msg", "You've been logged out successfully.");
         }
         model.setViewName("login");
+//        model.setViewName("views/login");
 
         return model;
 
@@ -66,7 +71,16 @@ public class UserController {
         }
 
         model.setViewName("403");
+//        model.setViewName("views/403");
         return model;
 
+    }
+
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
+    public String showProfile() {
+//        ModelAndView model = new ModelAndView();
+
+//        model.setViewName("profile");
+        return "profile";
     }
 }

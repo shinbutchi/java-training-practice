@@ -53,15 +53,27 @@
         <property name="jndiName" value="java:comp/env/jdbc/java_training"/>
     </bean>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
-
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
 
      <!--auditing -->
     <jpa:auditing auditor-aware-ref="auditorAware" />
     <bean id="auditorAware" class="vn.smartdev.javatrainingpractice.springmvcpractice.entities.AuditorAwareImpl" />
+
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+    </bean>
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/layout/main-tiles.xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
 </beans>

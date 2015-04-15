@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+    <definition name="layout-general" template="/WEB-INF/pages/template/template.jsp">
+        <put-attribute name="header" value="/WEB-INF/pages/template/header.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/pages/template/footer.jsp" />
+    </definition>
+    <definition name="/login" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/login.jsp" />
+    </definition>
+    <definition name="/403" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/403.jsp" />
+    </definition>
+    <definition name="/admin" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/admin.jsp" />
+    </definition>
+    <definition name="/" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/hello.jsp" />
+    </definition>
+    <definition name="/welcome" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/hello.jsp" />
+    </definition>
+    <definition name="/profile" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/profile.jsp" />
+    </definition>
+</tiles-definitions>
