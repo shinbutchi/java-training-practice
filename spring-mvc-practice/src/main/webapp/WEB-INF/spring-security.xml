@@ -7,6 +7,7 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
+    <!-- enable use-expressions -->
     <http auto-config="true" use-expressions="true">
 
         <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
@@ -17,9 +18,9 @@
         <form-login
                 login-page="/login"
                 default-target-url="/welcome"
-                authentication-failure-url="/login?error"/>
-                <!--username-parameter="username"-->
-                <!--password-parameter="password" />-->
+                authentication-failure-url="/login?error"
+                username-parameter="username"
+                password-parameter="password" />
         <logout logout-success-url="/login?logout"  />
         <!-- enable csrf protection -->
         <csrf/>
@@ -27,25 +28,12 @@
 
     <authentication-manager>
         <authentication-provider>
-            <user-service>
-                <user name="root" password="root" authorities="ROLE_USER" />
-            </user-service>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query=
-                                       "select user_name,password from user where user_name=?"
+                                       "select username,password,enabled from user where username=?"
                                authorities-by-username-query=
-                                       "select us.user_name, ur.role_id from user us, user_role ur
-                                        where us.id = ur.user_id and us.user_name=?  " />
+                                       "select us.username, r.role_name from user us, user_role ur, role r
+                                        where us.id = ur.user_id and ur.role_id = r.id and us.username=?  " />
         </authentication-provider>
     </authentication-manager>
-
-    <beans:bean id="dataSource"
-                class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-
-        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property name="url" value="jdbc:mysql://localhost:3306/java_training" />
-        <beans:property name="username" value="root" />
-        <beans:property name="password" value="root" />
-    </beans:bean>
-
 </beans:beans>

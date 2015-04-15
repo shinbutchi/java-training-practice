@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name="user")
 public class User {
     private String id;
-    private String userName;
     private String password;
     private String firstName;
     private String lastName;
@@ -14,6 +13,8 @@ public class User {
     private String country;
     private String city;
     private String phoneNumber;
+    private String username;
+    private boolean enabled;
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 45)
@@ -23,16 +24,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    @Basic
-    @Column(name = "user_name", nullable = true, insertable = true, updatable = true, length = 255)
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     @Basic
@@ -113,7 +104,7 @@ public class User {
         User user = (User) o;
 
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
         if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
@@ -128,7 +119,7 @@ public class User {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
@@ -137,5 +128,25 @@ public class User {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "username", nullable = true, insertable = true, updatable = true, length = 255)
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Basic
+    @Column(name = "enabled", columnDefinition = "BIT", length = 1)
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }
