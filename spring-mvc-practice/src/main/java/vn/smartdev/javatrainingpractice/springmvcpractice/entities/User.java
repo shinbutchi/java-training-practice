@@ -1,11 +1,14 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Table(name="user")
-public class User {
-    private String id;
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String id = UUID.randomUUID().toString();
     private String password;
     private String firstName;
     private String lastName;

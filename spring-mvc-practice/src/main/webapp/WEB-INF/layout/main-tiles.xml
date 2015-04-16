@@ -24,4 +24,7 @@
     <definition name="profile" extends="layout-general">
         <put-attribute name="content" value="/WEB-INF/pages/views/profile.jsp" />
     </definition>
+    <definition name="signup" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/signup.jsp" />
+    </definition>
 </tiles-definitions>

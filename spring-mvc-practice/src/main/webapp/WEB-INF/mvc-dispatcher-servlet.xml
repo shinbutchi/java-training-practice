@@ -21,24 +21,6 @@
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
-    <!--<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
-        <!--<property name="dataSource" ref="dataSource"/>-->
-        <!--<property name="jpaVendorAdapter">-->
-            <!--<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">-->
-                <!--<property name="showSql" value="true" />-->
-            <!--</bean>-->
-        <!--</property>-->
-        <!--<property name="jpaPropertyMap">-->
-            <!--<map>-->
-                <!--<entry key="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />-->
-                <!--<entry key="hibernate.hbm2ddl.auto" value="update" />-->
-                <!--<entry key="hibernate.format_sql" value="true" />-->
-            <!--</map>-->
-        <!--</property>-->
-        <!--&lt;!&ndash; spring based scanning for entity classes>&ndash;&gt;-->
-        <!--<property name="packagesToScan" value="vn.smartdev.javatrainingpractice.springmvcpractice.entities"/>-->
-    <!--</bean>-->
-
     <!-- EntityManagerFactory -->
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" id="entityManagerFactory">
         <property name="persistenceUnitName" value="pUnit"/>

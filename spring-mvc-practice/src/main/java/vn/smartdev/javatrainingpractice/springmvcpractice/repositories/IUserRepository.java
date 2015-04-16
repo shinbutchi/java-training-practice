@@ -1,9 +1,8 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.repositories;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
 
-@Repository
-public interface IUserRepository extends CrudRepository<User,String> {
+
+public interface IUserRepository extends JpaRepository<User,String> {
 }

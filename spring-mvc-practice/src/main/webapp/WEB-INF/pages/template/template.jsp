@@ -3,15 +3,15 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="userApp">
     <head>
+        <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>">
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-responsive.css"/>">
-        <script src="<c:url value="/resources/js/jquery-1.8.3.min.js" />"></script>
-        <script src="<c:url value="/resources/js/angular/angular.js" />"></script>
-        <script src="<c:url value="/resources/js/app.js" />"></script>
-        <script src="<c:url value="/resources/js/AngularApp.js" />"></script>
-        <script src="<c:url value="/resources/js/bootstrap-toggle.min.js" />"></script>
-        <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
+        <link rel="stylesheet" href="<c:url value="/resources/css/angular-csp.css"/>">
+        <script src="<c:url value="/resources/js/angular.min.js" />"></script>
+        <script>
+            var userApp = angular.module("userApp", []);
+        </script>
     </head>
     <body>
     <!-- Start Header -->

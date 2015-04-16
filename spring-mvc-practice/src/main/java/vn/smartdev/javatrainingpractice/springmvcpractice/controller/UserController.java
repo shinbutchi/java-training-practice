@@ -6,12 +6,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import vn.smartdev.javatrainingpractice.springmvcpractice.dto.UserDTO;
+import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
+import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserService;
 
 @Controller
 public class UserController {
+
+    private IUserService userService;
 
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String defaultPage(Model model) {
@@ -69,5 +72,25 @@ public class UserController {
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String showProfile() {
         return "profile";
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.GET)
+    public String showSignUpPage() {
+        return "signup";
+    }
+
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @ResponseBody
+    public UserDTO add(@RequestBody UserDTO userDTO) {
+        userService.print();
+        User newUser = userService.add(userDTO);
+        return createUserDTO(newUser);
+    }
+
+    private UserDTO createUserDTO(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmailAddress(user.getEmailAddress());
+        userDTO.setPassword(user.getPassword());
+        return userDTO;
     }
 }

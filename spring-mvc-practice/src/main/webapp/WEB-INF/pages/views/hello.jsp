@@ -2,13 +2,3 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <h1>Title : ${title}</h1>
 <h1>Message : ${message}</h1>
-
-<sec:authorize access="hasRole('ROLE_USER')">
-	<!-- For login user -->
-	<c:if test="${pageContext.request.userPrincipal.name != null}">
-		<h2>
-			User : ${pageContext.request.userPrincipal.name} |
-			<a href="/logout">Logout</a>
-		</h2>
-	</c:if>
-</sec:authorize>
