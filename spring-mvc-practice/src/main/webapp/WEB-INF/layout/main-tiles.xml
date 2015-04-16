@@ -9,9 +9,9 @@
         <put-attribute name="content" value="" />
         <put-attribute name="footer" value="/WEB-INF/pages/template/footer.jsp" />
     </definition>
-    <!--<definition name="login" extends="layout-general">-->
-        <!--<put-attribute name="content" value="/WEB-INF/pages/views/login.jsp" />-->
-    <!--</definition>-->
+    <definition name="login" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/login.jsp" />
+    </definition>
     <definition name="403" extends="layout-general">
         <put-attribute name="content" value="/WEB-INF/pages/views/403.jsp" />
     </definition>
