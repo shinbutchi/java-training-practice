@@ -1,6 +1,5 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.dto;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import vn.smartdev.javatrainingpractice.springmvcpractice.validator.ValidEmail;

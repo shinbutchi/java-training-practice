@@ -2,7 +2,6 @@ package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 @Entity
 @Table(name="role")

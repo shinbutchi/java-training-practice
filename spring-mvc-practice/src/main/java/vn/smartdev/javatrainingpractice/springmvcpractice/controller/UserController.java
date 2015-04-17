@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import vn.smartdev.javatrainingpractice.springmvcpractice.dto.UserDTO;
 import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
@@ -19,8 +18,6 @@ import vn.smartdev.javatrainingpractice.springmvcpractice.util.BaseResponse;
 import vn.smartdev.javatrainingpractice.springmvcpractice.util.ResponseUtil;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class UserController {
@@ -32,7 +29,6 @@ public class UserController {
 
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
     public String defaultPage(Model model) {
-//        _log.debug("abcd");
         model.addAttribute("title", "Login Form");
         model.addAttribute("message", "Default page!");
         return "hello";
