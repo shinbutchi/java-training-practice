@@ -1,28 +1,20 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import vn.smartdev.javatrainingpractice.springmvcpractice.binding.ErrorResource;
 import vn.smartdev.javatrainingpractice.springmvcpractice.binding.FieldErrorResource;
 import vn.smartdev.javatrainingpractice.springmvcpractice.exception.InvalidRequestException;
-import vn.smartdev.javatrainingpractice.springmvcpractice.util.BaseResponse;
-//import vn.smartdev.javatrainingpractice.springmvcpractice.util.FormErrorResponse;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -30,9 +22,6 @@ import java.util.Locale;
 @Controller
 @ControllerAdvice
 public class ErrorHandlingController extends ResponseEntityExceptionHandler {
-
-    @Autowired
-    private MessageSource messageSource;
 
     @ExceptionHandler(InvalidRequestException.class)
     protected ResponseEntity<ErrorResource> handleInvalidRequest(RuntimeException ex, WebRequest request) {
