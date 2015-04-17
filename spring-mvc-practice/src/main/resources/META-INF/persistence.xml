@@ -5,14 +5,17 @@
 
     <persistence-unit name="pUnit">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <!--<class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.User</class>-->
-        <!--<class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.Role</class>-->
-        <!--<class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.UserRole</class>-->
+        <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.Role</class>
+        <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.User</class>
+        <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.UserRole</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="validate"/>
             <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
             <property name="hibernate.connection.charSet" value="UTF-8"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/java_training"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.show_sql" value="true" />
         </properties>
     </persistence-unit>
 </persistence>

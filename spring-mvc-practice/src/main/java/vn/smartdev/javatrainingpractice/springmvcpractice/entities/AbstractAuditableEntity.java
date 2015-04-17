@@ -19,7 +19,7 @@ import java.util.Date;
 public abstract class AbstractAuditableEntity implements Serializable {
     @CreatedBy
     @Column(name = "created_by")
-    private String createBy;
+    private String createdBy;
 
     @LastModifiedBy
     @Column(name = "last_modified_by")
@@ -36,4 +36,44 @@ public abstract class AbstractAuditableEntity implements Serializable {
     @Version
     @Column(name = "version_no")
     private Integer versionNo = 0;
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getLastModifiedBy() {
+        return LastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        LastModifiedBy = lastModifiedBy;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Integer getVersionNo() {
+        return versionNo;
+    }
+
+    public void setVersionNo(Integer versionNo) {
+        this.versionNo = versionNo;
+    }
 }

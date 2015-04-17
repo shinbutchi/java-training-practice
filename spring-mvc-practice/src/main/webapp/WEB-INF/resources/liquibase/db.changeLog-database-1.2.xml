@@ -13,13 +13,13 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath
             <column name="created_by" type="VARCHAR(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated_by" type="VARCHAR(45)">
+            <column name="last_modified_by" type="VARCHAR(45)">
                 <constraints nullable="false"/>
             </column>
             <column name="created_date" type="datetime">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated_date" type="datetime">
+            <column name="last_modified_date" type="datetime">
                 <constraints nullable="false"/>
             </column>
             <column defaultValueNumeric="0" name="version_no" type="INT">

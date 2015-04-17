@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name="user")
-public class User implements Serializable {
+public class User extends AbstractAuditableEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private String id = UUID.randomUUID().toString();
     private String password;
@@ -18,6 +18,10 @@ public class User implements Serializable {
     private String phoneNumber;
     private String username;
     private boolean enabled;
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     @Id
     @Column(name = "id", nullable = false, insertable = true, updatable = true, length = 45)
@@ -144,7 +148,7 @@ public class User implements Serializable {
     }
 
     @Basic
-    @Column(name = "enabled", columnDefinition = "BIT", length = 1)
+    @Column(name = "enabled", columnDefinition = "BIT", length = 1, nullable = true, insertable = true, updatable = true)
     public boolean isEnabled() {
         return enabled;
     }

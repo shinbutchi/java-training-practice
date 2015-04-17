@@ -1,10 +1,17 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
 import org.springframework.data.domain.AuditorAware;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 public class AuditorAwareImpl implements AuditorAware<String> {
     public String getCurrentAuditor() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return "Dat";
+        if (authentication == null || !authentication.isAuthenticated()) {
+            return null;
+        }
+
+        return ((String) authentication.getPrincipal());
     }
 }

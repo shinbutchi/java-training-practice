@@ -1,5 +1,6 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +15,7 @@ import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserService;
 @Controller
 public class UserController {
 
+    @Autowired
     private IUserService userService;
 
     @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
@@ -82,7 +84,6 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public UserDTO add(@RequestBody UserDTO userDTO) {
-        userService.print();
         User newUser = userService.add(userDTO);
         return createUserDTO(newUser);
     }

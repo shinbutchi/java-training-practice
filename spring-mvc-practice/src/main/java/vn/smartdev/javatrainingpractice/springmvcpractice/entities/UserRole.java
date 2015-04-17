@@ -1,10 +1,11 @@
 package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "user_role", schema = "", catalog = "java_training")
-public class UserRole {
+public class UserRole extends AbstractAuditableEntity implements Serializable {
     private String id;
     private Role roleByRoleId;
     private User userByUserId;
