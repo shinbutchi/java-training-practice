@@ -9,9 +9,10 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-responsive.css"/>">
         <link rel="stylesheet" href="<c:url value="/resources/css/angular-csp.css"/>">
         <script src="<c:url value="/resources/js/angular.min.js" />"></script>
-        <script>
-            var userApp = angular.module("userApp", []);
-        </script>
+        <script src="<c:url value="/resources/js/app.js" />"></script>
+        <%--<script>--%>
+            <%--var userApp = angular.module("userApp", []);--%>
+        <%--</script>--%>
     </head>
     <body>
     <!-- Start Header -->
