@@ -1,17 +1,24 @@
-userApp.controller("UserController",['$scope','$http','$anchorScroll',
-    function($scope, $http, $anchorScroll) {
+userApp.controller("UserController",['$scope','$http','$anchorScroll','$sce',
+    function($scope, $http, $anchorScroll, $sce) {
         $scope.user = {};
         $scope.addUser = function(user) {
             $http.post('add', user).success(function (data) {
-                console.log(data);
-                setSuccess($scope, data);
-                $scope.gotoMessage("messageContainer");
+                if(isErrorMessage(data)) {
+                    setErrorMessage($scope, data);
+                }
+                else {
+                    setSuccess($scope, data);
+                    //$scope.gotoMessage("messageContainer");
+                }
             });
         };
 
-        $scope.gotoMessage = function (id) {
-            //$location.hash(id);
+        $scope.gotoMessage = function () {
             $anchorScroll();
         };
+
+
     }
+
+
 ]);

@@ -9,16 +9,14 @@ import javax.validation.ConstraintValidatorContext;
 
 
 public class ValidEmailValidator implements ConstraintValidator<ValidEmail, String> {
-//    @Autowired
-//    private IUserService iUserService;
+    @Autowired
+    private IUserService iUserService;
 
     public void initialize(ValidEmail validEmail) {
 
     }
 
     public boolean isValid(String emailAddress, ConstraintValidatorContext constraintValidatorContext) {
-        if(emailAddress == null)
-            return false;
-        return true;
+        return !iUserService.isExistedEmailAddress(emailAddress);
     }
 }

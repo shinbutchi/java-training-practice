@@ -5,6 +5,5 @@ import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
 
 public interface IUserService {
     User add(UserDTO userDTO);
-
-    void print();
+    boolean isExistedEmailAddress(String emailAddress);
 }

@@ -5,12 +5,14 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import vn.smartdev.javatrainingpractice.springmvcpractice.validator.ValidEmail;
 
+import javax.validation.constraints.Pattern;
+
 public class UserDTO {
 
-//    @NotBlank
-//    @NotEmpty
-//    @Email
+    @NotBlank
+    @NotEmpty
     @ValidEmail
+    @Pattern(regexp="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$")
     private String emailAddress;
 
     @NotBlank

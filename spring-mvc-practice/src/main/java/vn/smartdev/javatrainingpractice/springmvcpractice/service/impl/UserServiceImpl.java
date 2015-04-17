@@ -25,10 +25,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void print() {
-        System.out.println("XXXX");
-        System.out.println("yyy");
+    public boolean isExistedEmailAddress(String emailAddress) {
+        return iUserRepository.findFirstByEmailAddress(emailAddress) != null;
     }
+
 
     private User fromUserDTO(UserDTO userDTO) {
         User user = new User();

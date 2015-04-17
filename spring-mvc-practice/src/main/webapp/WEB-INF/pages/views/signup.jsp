@@ -12,12 +12,12 @@
         </header>
         <div class="content" style="padding: 15px">
             <%--<div id="messageContainer" class="clear">--%>
-                <div id="messageContainer" class="alert alert-success">
+                <div id="messageContainer" class="alert alert-success" ng-show="success">
                     <h4>{{successMessage}}</h4>
                 </div>
-                <%--<div class="alert alert-error">--%>
-                    <%--<h4>${message}</h4>--%>
-                <%--</div>--%>
+                <div id="messageContainer" class="alert alert-danger" ng-show="error">
+                    <h4>{{errorMessage}}</h4>
+                </div>
             <%--</div>--%>
             <div class="form-horizontal">
                 <div class="form-group">

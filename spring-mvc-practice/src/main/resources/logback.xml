@@ -20,7 +20,7 @@
         </rollingPolicy>
     </appender>
 
-    <root level="debug">
+    <root level="error">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ROLLING"/>
     </root>

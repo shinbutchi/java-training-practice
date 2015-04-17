@@ -13,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import vn.smartdev.javatrainingpractice.springmvcpractice.dto.UserDTO;
 import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
+import vn.smartdev.javatrainingpractice.springmvcpractice.exception.InvalidRequestException;
 import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserService;
 import vn.smartdev.javatrainingpractice.springmvcpractice.util.BaseResponse;
 import vn.smartdev.javatrainingpractice.springmvcpractice.util.ResponseUtil;
@@ -95,26 +96,12 @@ public class UserController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public List<BaseResponse> add(@Valid @RequestBody UserDTO userDTO, BindingResult result) {
-        User user = userService.add(userDTO);
-        BaseResponse<?> response;
-        List<BaseResponse> baseResponses = new ArrayList<BaseResponse>();
+    public BaseResponse<?> add(@Valid @RequestBody UserDTO userDTO, BindingResult result) {
         if(result.hasErrors()) {
-            List<FieldError> fieldErrors = result.getFieldErrors();
-            for(FieldError fieldError : fieldErrors) {
-                Object[] arguments = fieldError.getArguments();
-                String code = fieldError.getCode();
-                String field = fieldError.getField();
-                response = ResponseUtil.getFieldErrorResponse(field, code, arguments);
-                baseResponses.add(response);
-            }
+            throw new InvalidRequestException("error",result);
         }
-        else {
-            response= ResponseUtil.getSuccessReponse("success");
-            baseResponses.add(response);
-        }
-
-        return baseResponses;
+        userService.add(userDTO);
+        return ResponseUtil.getSuccessReponse("success");
     }
 
     private UserDTO createUserDTO(User user) {
