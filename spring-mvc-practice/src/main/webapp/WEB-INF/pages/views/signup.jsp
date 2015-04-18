@@ -6,19 +6,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <script src="<c:url value="/resources/js/controllers/UserController.js" />"></script>
 <div ng-controller="UserController">
-    <div class="panel">
+    <div class="panel col-md-6 offset3">
         <header class="panel-heading">
-            <div class="title">Sign Up</div>
+            <h3 class="title">Sign Up</h3>
         </header>
         <div class="content" style="padding: 15px">
-            <%--<div id="messageContainer" class="clear">--%>
-                <div id="messageContainer" class="alert alert-success" ng-show="success">
-                    <h4>{{successMessage}}</h4>
-                </div>
-                <div id="messageContainer" class="alert alert-danger" ng-show="error">
-                    <h4>{{errorMessage}}</h4>
-                </div>
-            <%--</div>--%>
+                <p class="alert alert-success" ng-show="success" ng-bind-html="successMessage">
+                </p>
+                <p class="alert alert-danger" ng-show="error" ng-bind-html="errorMessage">
+                </p>
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="control-group">
@@ -31,6 +27,12 @@
                         <label class="control-label" for="password">Password</label>
                         <div class="controls">
                             <input type="password" class="form-control ng-valid ng-dirty" id="password" ng-model="user.password">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="retypePassword">Retype Password</label>
+                        <div class="controls">
+                            <input type="password" class="form-control ng-valid ng-dirty" id="retypePassword" ng-model="user.retypePassword"/>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" ng-click="addUser(user)">

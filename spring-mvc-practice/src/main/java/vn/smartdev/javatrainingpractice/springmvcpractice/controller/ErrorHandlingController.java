@@ -6,6 +6,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -28,15 +29,15 @@ public class ErrorHandlingController extends ResponseEntityExceptionHandler {
         InvalidRequestException ire = (InvalidRequestException) ex;
 
         List<FieldErrorResource> fieldErrorResources = new ArrayList<FieldErrorResource>();
-
         List<FieldError> fieldErrors = ire.getErrors().getFieldErrors();
-        for (FieldError fieldError : fieldErrors) {
-            FieldErrorResource fieldErrorResource = new FieldErrorResource();
-            fieldErrorResource.setResource(fieldError.getObjectName());
-            fieldErrorResource.setField(fieldError.getField());
-            fieldErrorResource.setCode(fieldError.getCode());
-            fieldErrorResource.setMessage(getMessage(fieldError.getCode(), fieldError.getField()));
-            fieldErrorResources.add(fieldErrorResource);
+        if(fieldErrors.size() == 0){
+            Errors errors = ire.getErrors();
+            fieldErrorResources.add(createdFieldErrorResourceByErrors(errors));
+        }
+        else {
+            for (FieldError fieldError : fieldErrors) {
+                fieldErrorResources.add(createdFieldErrorResourceByFieldErrors(fieldError));
+            }
         }
 
         ErrorResource error = new ErrorResource("InvalidRequest", ire.getMessage());
@@ -56,6 +57,22 @@ public class ErrorHandlingController extends ResponseEntityExceptionHandler {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.setBasename("messages");
         return messageSource;
+    }
+
+    private FieldErrorResource createdFieldErrorResourceByErrors(Errors errors) {
+        FieldErrorResource fieldErrorResource = new FieldErrorResource();
+        fieldErrorResource.setCode(errors.getGlobalError().getCode());
+        fieldErrorResource.setMessage(getMessage(errors.getGlobalError().getCode(), new Object()));
+        return fieldErrorResource;
+    }
+
+    private FieldErrorResource createdFieldErrorResourceByFieldErrors(FieldError fieldError) {
+        FieldErrorResource fieldErrorResource = new FieldErrorResource();
+        fieldErrorResource.setResource(fieldError.getObjectName());
+        fieldErrorResource.setField(fieldError.getField());
+        fieldErrorResource.setCode(fieldError.getCode());
+        fieldErrorResource.setMessage(getMessage(fieldError.getCode(), fieldError.getField()));
+        return fieldErrorResource;
     }
 
 }

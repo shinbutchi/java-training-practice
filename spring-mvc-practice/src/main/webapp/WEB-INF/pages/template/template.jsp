@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>">
         <link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-responsive.css"/>">
         <link rel="stylesheet" href="<c:url value="/resources/css/angular-csp.css"/>">
+        <link rel="stylesheet" href="<c:url value="/resources/css/custom.css"/>">
         <script src="<c:url value="/resources/js/angular.min.js" />"></script>
         <script src="<c:url value="/resources/js/angular-sanitize.js" />"></script>
         <script src="<c:url value="/resources/js/app.js" />"></script>

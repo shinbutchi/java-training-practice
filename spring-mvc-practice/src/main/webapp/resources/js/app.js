@@ -23,10 +23,12 @@ function setErrorMessage(scope, data) {
   resetError(scope);
   scope.error = true;
   data.fieldErrors.forEach(function(fieldError) {
-    errorMessage+=fieldError.field;
-    errorMessage+=':';
+    if(fieldError.field != null) {
+      errorMessage+=fieldError.field;
+      errorMessage+=': ';
+    }
     errorMessage+=fieldError.message;
-    errorMessage+="\n";
+    errorMessage+="<br>";
   });
   scope.error = true;
   scope.errorMessage = errorMessage;
