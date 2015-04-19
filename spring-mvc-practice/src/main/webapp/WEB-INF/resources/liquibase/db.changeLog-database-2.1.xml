@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database-2.1.xml">
+
+    <changeSet author="dat" id="1405514987579-1">
+        <addDefaultValue catalogName="java_training"
+                         columnDataType="BIT(1)"
+                         columnName="account_non_locked"
+                         defaultValueNumeric="1"
+                         schemaName="public"
+                         tableName="user"/>
+    </changeSet>
+</databaseChangeLog>

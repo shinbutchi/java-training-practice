@@ -81,6 +81,7 @@ public class UserServiceImpl implements IUserService {
         user.setCity(userDTO.getCity());
         user.setPhoneNumber(userDTO.getPhoneNumber());
         user.setEnabled(true);
+        user.setAccountNonLocked(true);
         return user;
     }
 

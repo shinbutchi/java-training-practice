@@ -35,7 +35,7 @@ public class LimitLoginAuthenticationProvider extends DaoAuthenticationProvider 
 			String error = "";
 			UserAttempts userAttempts = userDetailsDao.getUserAttempts(authentication.getName());
 			if (userAttempts != null) {
-				error = "Your account locked, please contact your administrator";
+				error = "Your account is locked, please contact your administrator";
 			} else {
 				error = e.getMessage();
 			}
