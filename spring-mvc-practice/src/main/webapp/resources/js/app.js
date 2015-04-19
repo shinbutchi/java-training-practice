@@ -1,4 +1,4 @@
-var userApp = angular.module("userApp", ['ngSanitize']);
+var userApp = angular.module("userApp", ['ngSanitize','ui.bootstrap']);
 
 function resetError(scope) {
   scope.success = false;
@@ -19,6 +19,14 @@ function isErrorMessage(data) {
 }
 
 function setErrorMessage(scope, data) {
+  var errorMessage = '';
+  resetError(scope);
+  errorMessage=data.messageInfo;
+  scope.error = true;
+  scope.errorMessage = errorMessage;
+}
+
+function setFieldErrorMessage(scope, data) {
   var errorMessage = '';
   resetError(scope);
   scope.error = true;

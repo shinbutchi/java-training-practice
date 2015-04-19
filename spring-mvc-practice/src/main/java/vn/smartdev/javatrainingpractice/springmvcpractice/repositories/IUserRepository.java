@@ -6,4 +6,5 @@ import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
 
 public interface IUserRepository extends JpaRepository<User,String> {
     User findFirstByEmailAddress(String emailAddress);
+    User findFirstByUsername(String username);
 }

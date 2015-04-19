@@ -12,6 +12,6 @@ public class AuditorAwareImpl implements AuditorAware<String> {
             return null;
         }
 
-        return ((String) authentication.getPrincipal());
+        return (authentication.getName());
     }
 }

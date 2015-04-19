@@ -15,9 +15,6 @@
     <definition name="403" extends="layout-general">
         <put-attribute name="content" value="/WEB-INF/pages/views/403.jsp" />
     </definition>
-    <definition name="admin" extends="layout-general">
-        <put-attribute name="content" value="/WEB-INF/pages/views/admin.jsp" />
-    </definition>
     <definition name="hello" extends="layout-general">
         <put-attribute name="content" value="/WEB-INF/pages/views/hello.jsp" />
     </definition>
@@ -26,5 +23,8 @@
     </definition>
     <definition name="signup" extends="layout-general">
         <put-attribute name="content" value="/WEB-INF/pages/views/signup.jsp" />
+    </definition>
+    <definition name="listUser" extends="layout-general">
+        <put-attribute name="content" value="/WEB-INF/pages/views/listUser.jsp" />
     </definition>
 </tiles-definitions>

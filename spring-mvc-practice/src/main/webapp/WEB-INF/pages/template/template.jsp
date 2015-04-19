@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="<c:url value="/resources/css/custom.css"/>">
         <script src="<c:url value="/resources/js/angular.min.js" />"></script>
         <script src="<c:url value="/resources/js/angular-sanitize.js" />"></script>
+        <script src="<c:url value="/resources/js/ui-bootstrap-tpls-0.11.0.min.js" />"></script>
         <script src="<c:url value="/resources/js/app.js" />"></script>
     </head>
     <body>
