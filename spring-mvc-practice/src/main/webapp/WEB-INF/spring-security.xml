@@ -22,7 +22,7 @@
         <form-login
                 login-page="/login"
                 authentication-failure-url="/login?error"
-                default-target-url="/welcome"
+                default-target-url="/edit-profile"
                 username-parameter="username"
                 password-parameter="password" />
         <logout logout-url="/logout" logout-success-url="/login?logout" />

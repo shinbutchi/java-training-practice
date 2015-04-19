@@ -44,10 +44,9 @@ public class UserController {
         this.userRoleService = userRoleService;
     }
 
-    @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String defaultPage(Model model) {
-        model.addAttribute("title", "Login Form");
-        model.addAttribute("message", "Default page!");
+        model.addAttribute("message", "This is default page!");
         return "hello";
 
     }

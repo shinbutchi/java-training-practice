@@ -11,6 +11,7 @@
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                     <li><a href="/edit-profile"><spring:message code="edit.profile"/></a></li>
                 </c:if>
+                <li><a href="/"><spring:message code="home"/></a></li>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li><a href="/list-user"><spring:message code="list.user"/></a></li>
                 </sec:authorize>
