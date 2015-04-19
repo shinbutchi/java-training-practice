@@ -46,15 +46,20 @@
         <!--<beans:property name="loginFormUrl" value="/login"/>-->
     <!--</beans:bean>-->
 
+    <!--<authentication-manager>-->
+        <!--<authentication-provider>-->
+            <!--<password-encoder hash="md5"/>-->
+            <!--<jdbc-user-service data-source-ref="dataSource"-->
+                               <!--users-by-username-query=-->
+                                       <!--"select username,password,enabled from user where username=?"-->
+                               <!--authorities-by-username-query=-->
+                                       <!--"select us.username, r.role_name from user us, user_role ur, role r-->
+                                        <!--where us.id = ur.user_id and ur.role_id = r.id and us.username=?  " />-->
+        <!--</authentication-provider>-->
+    <!--</authentication-manager>-->
     <authentication-manager>
-        <authentication-provider>
+        <authentication-provider user-service-ref="customUserDetailsServiceImpl">
             <password-encoder hash="md5"/>
-            <jdbc-user-service data-source-ref="dataSource"
-                               users-by-username-query=
-                                       "select username,password,enabled from user where username=?"
-                               authorities-by-username-query=
-                                       "select us.username, r.role_name from user us, user_role ur, role r
-                                        where us.id = ur.user_id and ur.role_id = r.id and us.username=?  " />
         </authentication-provider>
     </authentication-manager>
 </beans:beans>
