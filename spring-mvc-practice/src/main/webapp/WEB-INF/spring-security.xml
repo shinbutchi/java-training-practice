@@ -21,10 +21,11 @@
 
         <form-login
                 login-page="/login"
+                authentication-failure-url="/login?error"
                 default-target-url="/welcome"
                 username-parameter="username"
                 password-parameter="password" />
-        <logout logout-url="/logout" logout-success-url="/login" />
+        <logout logout-url="/logout" logout-success-url="/login?logout" />
         <!-- enable csrf protection -->
         <!--<csrf/>-->
     </http>

@@ -9,6 +9,8 @@ import vn.smartdev.javatrainingpractice.springmvcpractice.repositories.IRoleRepo
 import vn.smartdev.javatrainingpractice.springmvcpractice.repositories.IUserRoleRepository;
 import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserRoleService;
 
+import java.util.List;
+
 @Service
 public class UserRoleServiceImpl implements IUserRoleService {
 
@@ -30,5 +32,9 @@ public class UserRoleServiceImpl implements IUserRoleService {
         Role role = roleRepository.findFirstByRoleName(_ROLEUSER);
         UserRole userRole = new UserRole(user, role);
         return add(userRole);
+    }
+
+    public List<UserRole> getUserRoleByUser(User user) {
+        return userRoleRepository.findByUserByUserId(user);
     }
 }

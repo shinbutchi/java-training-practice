@@ -2,11 +2,13 @@ package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Table(name="role")
 public class Role  extends AbstractAuditableEntity implements Serializable {
-    private String id;
+    private static final long serialVersionUID = 1L;
+    private String id = UUID.randomUUID().toString();
     private String roleName;
 
     @Id

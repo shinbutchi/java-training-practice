@@ -64,7 +64,7 @@ public class UserController {
         }
 
         if (logout != null) {
-            model.addAttribute("msg", "You've been logged out successfully.");
+            model.addAttribute("logout", "You've been logged out successfully.");
         }
 
         return "login";
