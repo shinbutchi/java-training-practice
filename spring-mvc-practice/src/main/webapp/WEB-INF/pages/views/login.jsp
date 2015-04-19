@@ -12,7 +12,7 @@
             </div>
             <c:if test="${not empty error}">
                 <div class="alert alert-danger">
-                    <spring:message code="invalid.username.password"/>
+                    ${error}
                 </div>
             </c:if>
             <c:if test="${not empty logout}">

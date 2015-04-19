@@ -5,9 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import vn.smartdev.javatrainingpractice.springmvcpractice.dto.UserDTO;
 import vn.smartdev.javatrainingpractice.springmvcpractice.entities.User;
 import vn.smartdev.javatrainingpractice.springmvcpractice.exception.InvalidRequestException;
+import vn.smartdev.javatrainingpractice.springmvcpractice.exception.WrongUsernameException;
 import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserRoleService;
 import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserService;
 import vn.smartdev.javatrainingpractice.springmvcpractice.util.BaseResponse;
@@ -58,8 +62,8 @@ public class UserController {
                         HttpServletRequest request,
                         Model model) {
         if (error != null) {
-//            throw new WrongUsernameException("error");
-            model.addAttribute("error", "Invalid username and password!");
+            String errorMessage = getErrorMessage(request, "SPRING_SECURITY_LAST_EXCEPTION");
+            model.addAttribute("error", errorMessage);
         }
 
         if (logout != null) {
@@ -68,6 +72,23 @@ public class UserController {
 
         return "login";
 
+    }
+
+    private String getErrorMessage(HttpServletRequest request, String key){
+
+        Exception exception =
+                (Exception) request.getSession().getAttribute(key);
+
+        String error = "";
+        if (exception instanceof BadCredentialsException) {
+            error = "Invalid username and password!";
+        }else if(exception instanceof LockedException) {
+            error = exception.getMessage();
+        }else if(exception instanceof WrongUsernameException){
+            error = "Wrong Username";
+        }
+
+        return error;
     }
 
 

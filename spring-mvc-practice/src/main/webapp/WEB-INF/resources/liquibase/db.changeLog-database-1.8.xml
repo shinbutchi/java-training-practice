@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database-1.7.xml">
+
+    <changeSet author="dat" id="1405415985579-1">
+        <modifyDataType catalogName="java_training"
+                        columnName="id"
+                        newDataType="INT"
+                        schemaName="public"
+                        tableName="user_attempts"/>
+        <addAutoIncrement catalogName="java_training"
+                          columnDataType="INT"
+                          columnName="id"
+                          incrementBy="1"
+                          schemaName="public"
+                          startWith="1"
+                          tableName="user_attempts"/>
+    </changeSet>
+</databaseChangeLog>

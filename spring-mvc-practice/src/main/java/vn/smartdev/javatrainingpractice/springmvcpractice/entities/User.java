@@ -18,6 +18,7 @@ public class User extends AbstractAuditableEntity implements Serializable {
     private String phoneNumber;
     private String username;
     private boolean enabled;
+    private boolean accountNonLocked;
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
@@ -155,5 +156,15 @@ public class User extends AbstractAuditableEntity implements Serializable {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    @Basic
+    @Column(name = "account_non_locked", columnDefinition = "BIT", length = 1, nullable = true, insertable = true, updatable = true)
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
+    }
+
+    public void setAccountNonLocked(boolean accountNonLocked) {
+        this.accountNonLocked = accountNonLocked;
     }
 }

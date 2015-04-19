@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="log-directory" value="/home/hale/Workspaces/Server/apache-tomcat-7.0.59/logs" />
+    <property name="log-directory" value="/home/shin/Server/apache-tomcat-7.0.59/logs" />
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-16thread] %level %-35.35logger{30} -%msg%n%rEx</pattern>
@@ -20,7 +20,7 @@
         </rollingPolicy>
     </appender>
 
-    <root level="error">
+    <root level="debug">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ROLLING"/>
     </root>

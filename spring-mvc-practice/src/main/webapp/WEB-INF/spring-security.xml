@@ -30,6 +30,27 @@
         <!--<csrf/>-->
     </http>
 
+    <beans:bean id="customUserDetailsService"
+                class="vn.smartdev.javatrainingpractice.springmvcpractice.service.impl.CustomUserDetailsService">
+        <beans:property name="usersByUsernameQuery" value="select * from user where username = ?"/>
+        <beans:property name="authoritiesByUsernameQuery" value="select us.username, r.role_name from user us, user_role ur, role r
+        where us.id = ur.user_id and ur.role_id = r.id and us.username=?" />
+        <beans:property name="dataSource" ref="dataSource" />
+    </beans:bean>
+
+    <beans:bean id="userDetailsDao" class="vn.smartdev.javatrainingpractice.springmvcpractice.dao.impl.UserDetailsDaoImpl" >
+        <beans:property name="dataSource" ref="dataSource" />
+    </beans:bean>
+
+    <beans:bean id="encoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+
+    <beans:bean id="authenticationProvider"
+                class="vn.smartdev.javatrainingpractice.springmvcpractice.handler.LimitLoginAuthenticationProvider">
+        <beans:property name="userDetailsService" ref="customUserDetailsService" />
+        <beans:property name="userDetailsDao" ref="userDetailsDao" />
+        <beans:property name="passwordEncoder" ref="encoder"/>
+    </beans:bean>
+
     <!--<beans:bean id="customAuthenticationFailureHandler"-->
           <!--class="vn.smartdev.javatrainingpractice.springmvcpractice.controller.CustomAuthenticationFailureHandler">-->
         <!--<beans:property name="defaultFailureUrl" value="/login?error"/>-->
@@ -58,8 +79,7 @@
         <!--</authentication-provider>-->
     <!--</authentication-manager>-->
     <authentication-manager>
-        <authentication-provider user-service-ref="customUserDetailsServiceImpl">
-            <password-encoder hash="md5"/>
+        <authentication-provider ref="authenticationProvider">
         </authentication-provider>
     </authentication-manager>
 </beans:beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database-1.5.xml">
+
+    <changeSet author="dat" id="1405414985579-1">
+        <addColumn tableName="user">
+            <column name="accountNonLocked" type="BIT(1)" defaultValueNumeric="1"/>
+        </addColumn>
+        <createTable tableName="user_attempts">
+            <column name="id" type="VARCHAR(45)">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="username" type="VARCHAR(45)" />
+            <column name="attempts" type="VARCHAR(45)" />
+            <column name="created_by" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="version_no" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

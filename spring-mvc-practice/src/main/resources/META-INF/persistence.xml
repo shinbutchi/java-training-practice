@@ -8,6 +8,7 @@
         <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.Role</class>
         <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.User</class>
         <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.UserRole</class>
+        <class>vn.smartdev.javatrainingpractice.springmvcpractice.entities.UserAttempts</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="validate"/>
