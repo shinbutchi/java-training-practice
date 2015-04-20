@@ -2,9 +2,6 @@ package vn.smartdev.javatrainingpractice.springmvcpractice.entities;
 
 import javax.persistence.*;
 
-/**
- * Created by shin on 4/20/15.
- */
 @Entity
 @Table(name = "user_attempts", schema = "", catalog = "java_training")
 public class UserAttempts {

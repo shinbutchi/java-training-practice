@@ -54,6 +54,12 @@ public class UserServiceImpl implements IUserService {
         return iUserRepository.findAll(request);
     }
 
+    public User lockUser(String username) {
+        User user = findByUsername(username);
+        user.setAccountNonLocked(false);
+        return iUserRepository.save(user);
+    }
+
     private User fromUpdatedUserDTO(UserDTO userDTO, User user) {
         user.setEmailAddress(userDTO.getEmailAddress());
         user.setFirstName(userDTO.getFirstName());

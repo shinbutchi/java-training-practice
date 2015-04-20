@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database-2.6.xml">
+
+    <changeSet author="dat" id="1405514987579-1">
+        <addDefaultValue catalogName="java_training"
+                         columnDataType="datetime"
+                         columnName="created_date"
+                         defaultValueDate="2015-04-20 09:48:23"
+                         schemaName="public"
+                         tableName="user_attempts"/>
+        <addDefaultValue catalogName="java_training"
+                         columnDataType="datetime"
+                         columnName="last_modified_date"
+                         defaultValueDate="2015-04-20 09:48:23"
+                         schemaName="public"
+                         tableName="user_attempts"/>
+    </changeSet>
+</databaseChangeLog>

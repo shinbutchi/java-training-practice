@@ -10,5 +10,6 @@ public interface IUserService {
     boolean isExistedUsername(String username);
     User findByUsername(String username);
     User update(UserDTO userDTO);
-    public Page<User> findAllUsers(Integer pageNumber);
+    Page<User> findAllUsers(Integer pageNumber);
+    User lockUser(String username);
 }
