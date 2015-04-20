@@ -16,10 +16,7 @@ import vn.smartdev.javatrainingpractice.springmvcpractice.repositories.IUserRepo
 import vn.smartdev.javatrainingpractice.springmvcpractice.service.impl.UserServiceImpl;
 import vn.smartdev.javatrainingpractice.springmvcpractice.util.UserServiceTestUtil;
 
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceImplTest {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd" logicalFilePath="db.changeLog-database-2.2.xml">
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <changeSet author="dat" id="1405514988579-1">
+        <insert tableName="role" catalogName="java_training">
+            <column name="id" value="1"/>
+            <column name="role_name" value="ROLE_USER"/>
+            <column name="created_by" value="anonymousUser"/>
+            <column name="last_modified_by" value="anonymousUser"/>
+            <column name="created_date" valueDate="${now}"/>
+            <column name="last_modified_date" valueDate="${now}"/>
+            <column name="version_no" value="0"/>
+        </insert>
+        <insert tableName="role" catalogName="java_training">
+            <column name="id" value="2"/>
+            <column name="role_name" value="ROLE_ADMIN"/>
+            <column name="created_by" value="anonymousUser"/>
+            <column name="last_modified_by" value="anonymousUser"/>
+            <column name="created_date" valueDate="${now}"/>
+            <column name="last_modified_date" valueDate="${now}"/>
+            <column name="version_no" value="0"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
