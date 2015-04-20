@@ -14,7 +14,7 @@
         <!--<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />-->
         <!--<intercept-url pattern="/list-user" access="hasRole('ROLE_ADMIN')" />-->
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/list-user" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/list-user/**" access="hasRole('ROLE_ADMIN')" />
 
         <!-- access denied page -->
         <access-denied-handler error-page="/403" />

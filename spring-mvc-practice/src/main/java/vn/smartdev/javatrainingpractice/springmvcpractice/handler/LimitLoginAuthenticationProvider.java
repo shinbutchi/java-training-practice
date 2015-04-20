@@ -6,7 +6,6 @@ import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import vn.smartdev.javatrainingpractice.springmvcpractice.dao.UserDetailsDao;
 import vn.smartdev.javatrainingpractice.springmvcpractice.entities.UserAttempts;
 import vn.smartdev.javatrainingpractice.springmvcpractice.service.IUserAttemptsService;
 
